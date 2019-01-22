@@ -9,17 +9,27 @@ class Car1 {
 }
 //__________________________________________________________________________________________
 class Car2 {
+    /**
+     * constructor - инициализатор объекта класса
+     * @param mileage
+     * @param fuel
+     */
     constructor(mileage, fuel) {
         this.mileage = mileage;
         this.fuel = fuel;
     }
 }
-// В чем разница этих двух методов записи класа и можно ли так поступать с абстрактными классами?
+//  можно ли так поступать с абстрактными классами?
 //Task 2
 class Volvo extends Car1 {
     constructor(mileage, fuel) {
         super(mileage, fuel);
     }
+    /**
+     * drive - метод прохождения пути транспортным стредством
+     * @param {number} path - путь
+     * @return {void}
+     */
     drive(path) {
         let maxPath = this.fuel / 0.06;
         if (path <= maxPath) {
@@ -31,6 +41,11 @@ class Volvo extends Car1 {
             console.log(`Топлива достаточно только на ${maxPath} километров, пожалуста дозаправте ${needFuel} литров!`);
         }
     }
+    /**
+     * refuel -  метод заправки топлива
+     * @param {number} gas - путь
+     * @return {void}
+     */
     refuel(gas) {
         this.fuel += gas;
         return this.fuel;
@@ -45,6 +60,11 @@ class Volkswagen extends Car1 {
     constructor(mileage, fuel) {
         super(mileage, fuel);
     }
+    /**
+     * drive - метод прохождения пути транспортным стредством
+     * @param {number} path - путь
+     * @return {void}
+     */
     drive(path) {
         let maxPath = this.fuel / 0.08;
         if (path <= maxPath) {
@@ -56,12 +76,28 @@ class Volkswagen extends Car1 {
             console.log(`Топлива достаточно только на ${maxPath} километров, пожалуста дозаправте ${needFuel} литров!`);
         }
     }
+    /**
+     * refuel - метод заправки топлива
+     * @param {number} gas - путь
+     * @return {void}
+     * @public
+     */
     refuel(gas) {
         this.fuel += gas;
     }
+    /**
+     * get AmonthOfFuel - показать количество топлива
+     * @return {number}
+     * @public
+     */
     get AmonthOfFuel() {
         return this.fuel;
     }
+    /**
+    * get totalMileage - общий пробег
+    * @return {number}
+    * @public
+    */
     get totalMileage() {
         return this.mileage;
     }
